@@ -6,7 +6,9 @@ class TestYaml(unittest.TestCase):
      #   self.assertTrue(read_file())
 
     def test_services_key(self):
-        self.assertTrue(())
+        self.assertTrue(read_file(key="services"))
     
+
+
 if __name__ == '__main__':
     unittest.main()
