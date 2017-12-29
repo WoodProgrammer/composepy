@@ -8,17 +8,14 @@ class ParseCompose:
         self.main_data = {}
         self.services = {}
         self.service_keywords = {'environment','image','links','depends_on'}
-    def create_service_datas(self):
-        return self.services
-        
-
-
     def get_services(self):
-        self.services = self.main_data['services'].keys()
+        return self.services
+    
+    def set_services(self):
+        self.services = self.main_data['services']
 
 
 
-        
     def read_file(self,key=None):
 
         with open("./yml_test_files/docker-compose.yml", 'r') as stream:
@@ -27,11 +24,4 @@ class ParseCompose:
                 self.main_data = yaml_data
             except yaml.YAMLError as exc:
                 print(exc)
-
-
-obj = ParseCompose()
-obj.read_file()
-obj.get_services()
-print(obj.create_service_datas())
-
 
