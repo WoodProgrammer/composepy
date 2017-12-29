@@ -9,16 +9,16 @@ class ParseCompose:
         self.services = {}
         self.service_keywords = {'environment','image','links','depends_on'}
     def create_service_datas(self):
-        pass
-
-
-
-
-    def get_environ(self):
-        pass
-        
+        return self.services
         
 
+
+    def get_services(self):
+        self.services = self.main_data['services'].keys()
+
+
+
+        
     def read_file(self,key=None):
 
         with open("./yml_test_files/docker-compose.yml", 'r') as stream:
@@ -31,6 +31,7 @@ class ParseCompose:
 
 obj = ParseCompose()
 obj.read_file()
-print(obj.get_environ())
+obj.get_services()
+print(obj.create_service_datas())
 
 
